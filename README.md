@@ -14,3 +14,11 @@ Page 2:
 - Table view for display 5 days forecast (By city name at page 1)
 
 Business Logic and Data Access Logic encapsulate with Swift Package
+
+Screenshot:
+
+![Empty screen](/Screenshoot/screen1.png)
+
+![Main screen](/Screenshoot/screen2.png)
+
+![Forecast screen](/Screenshoot/screen3.png)
