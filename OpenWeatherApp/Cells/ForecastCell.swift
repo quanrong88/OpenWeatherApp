@@ -22,11 +22,11 @@ class ForecastCell: UITableViewCell {
     
     func updateCell(_ cellModel: ForecastCellModel) {
         guard let url = URL(string: cellModel.displayIcon) else {
-            self.iconImageView.image = UIImage(named: "logo_github")
+            self.iconImageView.image = UIImage(named: "emptyCloud")
             return
         }
         self.iconImageView.kf.indicatorType = .activity
-        self.iconImageView.kf.setImage(with: url, placeholder: UIImage(named: "logo_github"))
+        self.iconImageView.kf.setImage(with: url, placeholder: UIImage(named: "emptyCloud"))
         tempatureLabel.text = cellModel.displayTempature
         humLabel.text = cellModel.displayHumidity
         dateTimeLabel.text = cellModel.displayDateTime

@@ -37,7 +37,7 @@ public class AppCoordinator {
         navigationController.navigationBar.compactAppearance = appearance
         navigationController.navigationBar.scrollEdgeAppearance = appearance
         
-        mainVC.navigate.subscribe(onNext: {
+        mainViewModel.navigate.subscribe(onNext: {
             let forecastVM = ForecastViewModel(apiService: self.apiService)
             let forecastVC = ForecastVC(viewModel: forecastVM)
             self.navigationController.pushViewController(forecastVC, animated: true)

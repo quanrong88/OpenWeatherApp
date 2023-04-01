@@ -24,7 +24,7 @@ class MainVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let navigate = PublishSubject<Void>()
+    
     
     public init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -55,20 +55,20 @@ class MainVC: UIViewController {
     }
     
     @objc func nextTap() {
-        navigate.onNext(())
+        viewModel.actionInput.onNext(.navigateDetail)
     }
     
     func bindingViewModel() {
         viewModel.nameValueSubject.asDriver(onErrorJustReturn: "Weather").drive(self.rx.title).disposed(by: bag)
-        viewModel.tempatureValueSubject.asDriver(onErrorJustReturn: "N/A").drive(tempatureLabel.rx.text).disposed(by: bag)
-        viewModel.humilityValueSubject.asDriver(onErrorJustReturn: "N/A").drive(humidityLabel.rx.text).disposed(by: bag)
+        viewModel.tempatureValueSubject.asDriver(onErrorJustReturn: "---").drive(tempatureLabel.rx.text).disposed(by: bag)
+        viewModel.humilityValueSubject.asDriver(onErrorJustReturn: "---").drive(humidityLabel.rx.text).disposed(by: bag)
         viewModel.iconValueSubject.subscribe(onNext: { value in
             guard let url = URL(string: value) else {
-                self.iconImageView.image = UIImage(named: "logo_github.png")
+                self.iconImageView.image = UIImage(named: "emptyCloud")
                 return
             }
             self.iconImageView.kf.indicatorType = .activity
-            self.iconImageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
+            self.iconImageView.kf.setImage(with: url, placeholder: UIImage(named: "emptyCloud"))
         })
         .disposed(by: bag)
         
