@@ -51,6 +51,5 @@ public class AppCoordinator {
     }
     
     public func finish() {
-        
     }
 }
