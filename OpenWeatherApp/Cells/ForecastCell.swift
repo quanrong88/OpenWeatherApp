@@ -17,7 +17,6 @@ class ForecastCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func updateCell(_ cellModel: ForecastCellModel) {
