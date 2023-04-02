@@ -50,6 +50,5 @@ public class AppCoordinator {
         window.rootViewController = navigationController
     }
     
-    public func finish() {
-    }
+    public func finish() {}
 }
